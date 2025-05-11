@@ -40,3 +40,10 @@ def get_schedule(group_name: str, week_type: Optional[str] = None, sub_group: Op
 @app.get("/groups")
 def list_groups():
     return list(schedule_data.keys())
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+
